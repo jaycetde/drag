@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <style>
+            
+            #container {
+                width: 100px;
+                height: 100px;
+                background: gray;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        
+        <div id="container">
+            
+            
+            
+        </div>
+        
+        <script src="build/build.js"></script>
+        <script>
+            var Drag = require('drag')
+              , d = new Drag(document.getElementById('container'))
+            ;
+            
+            d
+              .on('dragstart', function (e) {
+                  console.log('start', e.pageX, e.pageY);
+              })
+              .on('drag', function (e, start) {
+                  console.log('drag', e.pageX - start.pageX, e.pageY - start.pageY);
+              })
+              .on('dragend', function (e, start) {
+                  console.log('end', e.pageX - start.pageX, e.pageY - start.pageY);
+              })
+            ;
+            
+        </script>
+    </body>
+
+</html>
